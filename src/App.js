@@ -13,6 +13,7 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: false,
     isSaveButtonDisabled: true,
+    cards: [],
   }
 
   onInputChange = ({ target }) => {
@@ -41,6 +42,34 @@ class App extends React.Component {
     }
 
     this.setState({ isSaveButtonDisabled: buttonIsDisabled });
+  }
+
+  onSaveButtonClick = () => {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+      cardImage, cardRare, cardTrunfo } = this.state;
+    const card = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+
+    this.setState((previState) => ({
+      cards: [...previState.cards, card],
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
   }
 
   render() {
