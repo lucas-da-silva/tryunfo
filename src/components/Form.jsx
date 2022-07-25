@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.props;
-    const { cardImage, cardRare, cardTrunfo, hasTrunfo } = this.props;
-    const { isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+      cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
+      onInputChange, onSaveButtonClick } = this.props;
 
     return (
       <form action="">
@@ -13,7 +13,7 @@ class Form extends Component {
           <label htmlFor="name-input">
             Nome
             <input
-              name="name"
+              name="cardName"
               type="text"
               value={ cardName }
               onChange={ onInputChange }
@@ -27,7 +27,7 @@ class Form extends Component {
           <label htmlFor="description-input">
             Descrição
             <textarea
-              name="description"
+              name="cardDescription"
               id="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
@@ -43,7 +43,7 @@ class Form extends Component {
             Atributo 1
             <input
               type="number"
-              name="attr1"
+              name="cardAttr1"
               value={ cardAttr1 }
               onChange={ onInputChange }
               id="attr1-input"
@@ -57,7 +57,7 @@ class Form extends Component {
             Atributo 2
             <input
               type="number"
-              name="attr2"
+              name="cardAttr2"
               value={ cardAttr2 }
               onChange={ onInputChange }
               id="attr2-input"
@@ -71,7 +71,7 @@ class Form extends Component {
             Atributo 3
             <input
               type="number"
-              name="attr3"
+              name="cardAttr3"
               value={ cardAttr3 }
               onChange={ onInputChange }
               id="attr3-input"
@@ -85,7 +85,7 @@ class Form extends Component {
             Imagem
             <input
               type="text"
-              name="image"
+              name="cardImage"
               value={ cardImage }
               onChange={ onInputChange }
               id="imagem-input"
@@ -98,7 +98,7 @@ class Form extends Component {
           <label htmlFor="rare-input">
             Raridade
             <select
-              name="rare"
+              name="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
               id="rare-input"
@@ -115,7 +115,7 @@ class Form extends Component {
           <label htmlFor="trunfo-input">
             <input
               type="checkbox"
-              name="trunfo"
+              name="cardTrunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
               id="trunfo-input"
