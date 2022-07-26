@@ -4,11 +4,19 @@ import Card from './Card';
 
 class GetCards extends Component {
   render() {
-    const { cards, removeCard } = this.props;
+    const { cards, filterName, removeCard } = this.props;
     const htmlCards = [];
-    cards.forEach((card) => {
+    let letters = cards;
+
+    if (filterName !== '') {
+      // const filtered = cards.filter(({ cardName }) => cardName.startsWith(filterName));
+      const filtered = cards.filter(({ cardName }) => cardName.includes(filterName));
+      letters = filtered;
+    }
+
+    letters.forEach((letter) => {
       const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-        cardImage, cardRare, cardTrunfo } = card;
+        cardImage, cardRare, cardTrunfo } = letter;
       const htmlCard = (<Card
         key={ cardName }
         cardName={ cardName }
@@ -31,7 +39,12 @@ class GetCards extends Component {
 
 GetCards.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filterName: PropTypes.string,
   removeCard: PropTypes.func.isRequired,
+};
+
+GetCards.defaultProps = {
+  filterName: '',
 };
 
 export default GetCards;
