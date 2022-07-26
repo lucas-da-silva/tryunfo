@@ -4,15 +4,14 @@ import Card from './Card';
 
 class GetCards extends Component {
   render() {
-    const { cards, filterName, removeCard } = this.props;
+    const { cards, nameFilter, removeCard, rareFilter } = this.props;
     const htmlCards = [];
     let letters = cards;
-
-    if (filterName !== '') {
-      // const filtered = cards.filter(({ cardName }) => cardName.startsWith(filterName));
-      const filtered = cards.filter(({ cardName }) => cardName.includes(filterName));
-      letters = filtered;
+    if (rareFilter !== 'todas') {
+      letters = cards.filter(({ cardRare }) => cardRare === rareFilter);
     }
+    // const filtered = cards.filter(({ cardName }) => cardName.startsWith(nameFilter));
+    letters = letters.filter(({ cardName }) => cardName.includes(nameFilter));
 
     letters.forEach((letter) => {
       const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
@@ -39,12 +38,13 @@ class GetCards extends Component {
 
 GetCards.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.object).isRequired,
-  filterName: PropTypes.string,
+  nameFilter: PropTypes.string,
   removeCard: PropTypes.func.isRequired,
+  rareFilter: PropTypes.string.isRequired,
 };
 
 GetCards.defaultProps = {
-  filterName: '',
+  nameFilter: '',
 };
 
 export default GetCards;

@@ -2,7 +2,8 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import GetCards from './components/GetCards';
-import FilterName from './components/FilterName';
+import NameFilter from './components/NameFilter';
+import RareFilter from './components/RareFilter';
 
 class App extends React.Component {
   state = {
@@ -17,7 +18,8 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     cards: [],
-    filterName: '',
+    nameFilter: '',
+    rareFilter: 'todas',
   }
 
   onInputChange = ({ target }) => {
@@ -90,7 +92,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
-      cards, filterName } = this.state;
+      cards, nameFilter, rareFilter } = this.state;
 
     return (
       <div>
@@ -120,15 +122,20 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         <h3>Todas as cartas</h3>
-        <FilterName
+        <NameFilter
           onInputChange={ this.onInputChange }
-          filterName={ filterName }
+          nameFilter={ nameFilter }
+        />
+        <RareFilter
+          onInputChange={ this.onInputChange }
+          rareFilter={ rareFilter }
         />
         <div>
           { cards.length > 0 && <GetCards
             cards={ cards }
-            filterName={ filterName }
+            nameFilter={ nameFilter }
             removeCard={ this.removeCard }
+            rareFilter={ rareFilter }
           />}
         </div>
       </div>
