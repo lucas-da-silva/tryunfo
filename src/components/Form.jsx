@@ -20,7 +20,6 @@ class Form extends Component {
         Super Trybe Trunfo
       </label>
     );
-    console.log(hasTrunfo);
 
     return (
       <form action="">
