@@ -77,6 +77,14 @@ class App extends React.Component {
     }));
   }
 
+  removeCard = ({ target }) => {
+    const superTrunfo = target.previousElementSibling.innerHTML === 'Super Trunfo';
+    if (superTrunfo) {
+      this.setState({ hasTrunfo: false });
+    }
+    target.parentElement.remove();
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
@@ -111,7 +119,10 @@ class App extends React.Component {
         />
         <h3>Todas as cartas</h3>
         <div>
-          { cards.length > 0 && <GetCards cards={ cards } />}
+          { cards.length > 0 && <GetCards
+            cards={ cards }
+            removeCard={ this.removeCard }
+          />}
         </div>
       </div>
     );

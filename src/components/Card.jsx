@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 
 class Card extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo } = this.props;
+      cardImage, cardRare, cardTrunfo, buttonDelete, removeCard } = this.props;
+
+    const button = (
+      <button onClick={ removeCard } type="button" data-testid="delete-button">
+        Excluir
+      </button>
+    );
 
     return (
       <div className="card">
@@ -30,6 +36,9 @@ class Card extends Component {
         {
           cardTrunfo === true && <p data-testid="trunfo-card">Super Trunfo</p>
         }
+        {
+          buttonDelete === true && button
+        }
       </div>
     );
   }
@@ -44,5 +53,13 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  buttonDelete: PropTypes.bool,
+  removeCard: PropTypes.func,
 };
+
+Card.defaultProps = {
+  buttonDelete: false,
+  removeCard: func,
+};
+
 export default Card;
