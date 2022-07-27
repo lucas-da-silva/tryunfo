@@ -5,7 +5,7 @@ class TrunfoFilter extends Component {
   render() {
     const { onInputChange, trunfoFilter } = this.props;
     return (
-      <div>
+      <div className="trunfo-filter">
         <label htmlFor="trunfo-filter">
           <input
             type="checkbox"

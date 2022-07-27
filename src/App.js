@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import Form from './components/Form';
 import Card from './components/Card';
 import GetCards from './components/GetCards';
@@ -41,7 +42,7 @@ class App extends React.Component {
 
     const sum = parseFloat(cardAttr1)
     + parseFloat(cardAttr2) + parseFloat(cardAttr3) < totalLimit;
-    const min = cardName.length > 0 && cardDescription.length > 0 && cardImage.length > 0;
+    const min = cardName.length && cardDescription.length && cardImage.length;
     const max = cardAttr1 < cardLimit && cardAttr2 < cardLimit && cardAttr3 < cardLimit;
     const negative = cardAttr1 >= 0 && cardAttr2 >= 0 && cardAttr3 >= 0;
 
@@ -97,7 +98,7 @@ class App extends React.Component {
       cards, nameFilter, rareFilter, trunfoFilter } = this.state;
 
     return (
-      <div>
+      <main className="main">
         <h1>Tryunfo</h1>
         <Form
           cardName={ cardName }
@@ -113,42 +114,51 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardImage={ cardImage }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
-        <h3>Todas as cartas</h3>
-        <h4>Filtros de busca</h4>
-        <NameFilter
-          onInputChange={ this.onInputChange }
-          nameFilter={ nameFilter }
-          trunfoFilter={ trunfoFilter }
-        />
-        <RareFilter
-          onInputChange={ this.onInputChange }
-          rareFilter={ rareFilter }
-          trunfoFilter={ trunfoFilter }
-        />
-        <TrunfoFilter
-          trunfoFilter={ trunfoFilter }
-          onInputChange={ this.onInputChange }
-        />
-        <div>
-          { cards.length > 0 && <GetCards
-            cards={ cards }
-            nameFilter={ nameFilter }
-            removeCard={ this.removeCard }
-            rareFilter={ rareFilter }
-            trunfoFilter={ trunfoFilter }
-          />}
+
+        <div className="pre-visu">
+          <h2>Pré-visualização</h2>
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardImage={ cardImage }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+          />
         </div>
-      </div>
+
+        <div className="cards-container">
+          <h2>Todas as cartas</h2>
+          <div className="filters">
+            <h4>Filtros de busca</h4>
+            <NameFilter
+              onInputChange={ this.onInputChange }
+              nameFilter={ nameFilter }
+              trunfoFilter={ trunfoFilter }
+            />
+            <RareFilter
+              onInputChange={ this.onInputChange }
+              rareFilter={ rareFilter }
+              trunfoFilter={ trunfoFilter }
+            />
+            <TrunfoFilter
+              trunfoFilter={ trunfoFilter }
+              onInputChange={ this.onInputChange }
+            />
+          </div>
+          <div className="cards">
+            { cards.length > 0 && <GetCards
+              cards={ cards }
+              nameFilter={ nameFilter }
+              removeCard={ this.removeCard }
+              rareFilter={ rareFilter }
+              trunfoFilter={ trunfoFilter }
+            />}
+          </div>
+        </div>
+      </main>
     );
   }
 }

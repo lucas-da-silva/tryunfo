@@ -5,7 +5,7 @@ class RareFilter extends Component {
   render() {
     const { onInputChange, rareFilter, trunfoFilter } = this.props;
     return (
-      <div>
+      <div className="rareFilter">
         <select
           name="rareFilter"
           value={ rareFilter }

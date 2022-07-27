@@ -23,7 +23,8 @@ class Form extends Component {
 
     return (
       <form action="">
-        <div>
+        <h2>Adicionar nova carta</h2>
+        <div className="name-input">
           <label htmlFor="name-input">
             Nome
             <input
@@ -38,7 +39,7 @@ class Form extends Component {
           </label>
         </div>
 
-        <div>
+        <div className="description-input">
           <label htmlFor="description-input">
             Descrição
             <textarea
@@ -54,7 +55,7 @@ class Form extends Component {
           </label>
         </div>
 
-        <div>
+        <div className="attr1-input">
           <label htmlFor="attr1-input">
             Atributo 1
             <input
@@ -68,7 +69,7 @@ class Form extends Component {
           </label>
         </div>
 
-        <div>
+        <div className="attr2-input">
           <label htmlFor="attr2-input">
             Atributo 2
             <input
@@ -82,7 +83,7 @@ class Form extends Component {
           </label>
         </div>
 
-        <div>
+        <div className="attr3-input">
           <label htmlFor="attr3-input">
             Atributo 3
             <input
@@ -96,7 +97,7 @@ class Form extends Component {
           </label>
         </div>
 
-        <div>
+        <div className="imagem-input">
           <label htmlFor="imagem-input">
             Imagem
             <input
@@ -111,7 +112,7 @@ class Form extends Component {
           </label>
         </div>
 
-        <div>
+        <div className="rare-input">
           <label htmlFor="rare-input">
             Raridade
             <select
@@ -129,13 +130,13 @@ class Form extends Component {
           </label>
         </div>
 
-        <div>
+        <div className="trunfo-input">
           {
             hasTrunfo ? <p>Você já tem um Super Trunfo em seu baralho</p> : htmlTrunfo
           }
         </div>
 
-        <div>
+        <div className="save-button">
           <button
             type="button"
             disabled={ isSaveButtonDisabled }

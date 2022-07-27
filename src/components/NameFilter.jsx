@@ -6,7 +6,7 @@ class NameFilter extends Component {
     const { onInputChange, nameFilter, trunfoFilter } = this.props;
 
     return (
-      <div>
+      <div className="name-filter">
         <label htmlFor="name-filter">
           <input
             name="nameFilter"

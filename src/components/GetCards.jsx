@@ -7,10 +7,14 @@ class GetCards extends Component {
     const { cards, nameFilter, removeCard, rareFilter, trunfoFilter } = this.props;
     const htmlCards = [];
     let letters = cards;
+
     if (rareFilter !== 'todas') {
       letters = cards.filter(({ cardRare }) => cardRare === rareFilter);
     }
-    letters = letters.filter(({ cardName }) => cardName.includes(nameFilter));
+    letters = letters.filter(({ cardName }) => {
+      const upper = cardName.toUpperCase();
+      return upper.includes(nameFilter.toUpperCase());
+    });
 
     if (trunfoFilter) {
       letters = cards.filter(({ cardTrunfo }) => cardTrunfo === true);
@@ -35,7 +39,9 @@ class GetCards extends Component {
       htmlCards.push(htmlCard);
     });
 
-    return (htmlCards);
+    return (
+      htmlCards
+    );
   }
 }
 
