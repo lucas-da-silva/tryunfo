@@ -16,25 +16,26 @@ class Card extends Component {
       <div className="card">
         <p data-testid="name-card">{cardName}</p>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <p data-testid="description-card">{cardDescription}</p>
-        <p data-testid="attr1-card">
+        <p className="pre-name" data-testid="description-card">{cardDescription}</p>
+        <p className="pre-attr1" data-testid="attr1-card">
           Atributo 1:
           {' '}
           {cardAttr1}
         </p>
-        <p data-testid="attr2-card">
+        <p className="pre-attr2" data-testid="attr2-card">
           Atributo 2:
           {' '}
           {cardAttr2}
         </p>
-        <p data-testid="attr3-card">
+        <p className="pre-attr3" data-testid="attr3-card">
           Atributo 3:
           {' '}
           {cardAttr3}
         </p>
-        <p data-testid="rare-card">{cardRare}</p>
+        <p className="pre-rare" data-testid="rare-card">{cardRare}</p>
         {
-          cardTrunfo === true && <p data-testid="trunfo-card">Super Trunfo</p>
+          cardTrunfo === true
+          && <p className="pre-trunfo" data-testid="trunfo-card">Super Trunfo</p>
         }
         {
           buttonDelete === true && button

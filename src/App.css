@@ -1,6 +1,7 @@
 * {
     padding: 0%;
     margin: 0%;
+    border: 0%;
     box-sizing: border-box;
     font-family: Arial;
 }
@@ -22,3 +23,140 @@ h4 {
     font-size: 17px;
     line-height: 18.45px;
 }
+
+.create-card {
+    display: flex;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 30px 0px 0 100px;
+}
+
+form h2 {
+    margin-bottom: 30px;
+}
+
+.name-input label, .description-input label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.name-input, .description-input {
+    margin-bottom: 20px;
+}
+
+.name-input input {
+    width: 355px;
+    height: 37px;
+    padding: 10px;
+}
+
+.description-input textarea {
+    width: 355px;
+    height: 80px;
+    padding: 10px;
+}
+
+.attr1-input, .attr2-input, .attr3-input {
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.attr1-input input, .attr2-input input, .attr3-input input {
+    width: 275px;
+    height: 37px;
+    margin-left: 34px;
+    padding: 10px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.attr3-input {
+    margin-bottom: 40px;
+}
+
+.imagem-input {
+    margin-bottom: 20px;
+}
+
+.imagem-input label {
+    display: flex;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.imagem-input input {
+    margin-left: 19px;
+    width: 275px;
+    height: 37px;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.rare-input label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.rare-input {
+    margin-bottom: 25px;
+}
+
+.rare-input select {
+    width: 355px;
+    height: 40px;
+}
+
+.trunfo-input label {
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.trunfo-input input {
+    margin-right: 5px;
+}
+
+.trunfo-input {
+    margin-bottom: 40px;
+}
+
+.save-button button {
+    width: 115px;
+    height: 40px;
+    border-radius: 2px;
+    padding: 8px 32px 8px 32px;
+    gap: 10px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    background-color: #003BE5;
+    color: #FFFFFF;
+    margin-bottom: 50px;
+}
+
+.pre-visu {
+    width: 50%;
+    margin-top: 30px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 348px;
+    justify-content: center;
+    align-items: center;
+    height: 529px;
+    border-radius: 10px;
+}
+
+
+

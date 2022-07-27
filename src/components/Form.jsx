@@ -17,7 +17,7 @@ class Form extends Component {
           id="trunfo-input"
           data-testid="trunfo-input"
         />
-        Super Trybe Trunfo
+        Super Trunfo
       </label>
     );
 
@@ -35,6 +35,7 @@ class Form extends Component {
               id="name-input"
               data-testid="name-input"
               required
+              placeholder="Nome da carta"
             />
           </label>
         </div>
@@ -51,13 +52,14 @@ class Form extends Component {
               cols="30"
               rows="10"
               required
+              placeholder="Descrição da carta"
             />
           </label>
         </div>
 
         <div className="attr1-input">
           <label htmlFor="attr1-input">
-            Atributo 1
+            Attr01
             <input
               type="number"
               name="cardAttr1"
@@ -71,7 +73,7 @@ class Form extends Component {
 
         <div className="attr2-input">
           <label htmlFor="attr2-input">
-            Atributo 2
+            Attr02
             <input
               type="number"
               name="cardAttr2"
@@ -85,7 +87,7 @@ class Form extends Component {
 
         <div className="attr3-input">
           <label htmlFor="attr3-input">
-            Atributo 3
+            Attr03
             <input
               type="number"
               name="cardAttr3"
@@ -108,6 +110,7 @@ class Form extends Component {
               id="imagem-input"
               data-testid="image-input"
               required
+              placeholder="Url da imagem"
             />
           </label>
         </div>
