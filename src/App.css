@@ -31,8 +31,8 @@ h4 {
 form {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin: 30px 0px 0 100px;
+    width: 40%;
+    margin: 30px 0px 0 200px;
 }
 
 form h2 {
@@ -69,17 +69,25 @@ form h2 {
     margin-bottom: 10px;
 }
 
+.attr1-input input {
+    margin-left: 68px;
+    width: 243px;
+}
+
+.attr2-input input {
+    margin-left: 28px;
+    width: 243px;
+}
+
+.attr3-input input {
+    margin-left: 20px;
+    width: 243px;
+}
+
 .attr1-input input, .attr2-input input, .attr3-input input {
-    width: 275px;
-    height: 37px;
-    margin-left: 34px;
     padding: 10px;
     border-radius: 2px;
     text-align: center;
-}
-
-.attr3-input {
-    margin-bottom: 40px;
 }
 
 .imagem-input {
@@ -89,12 +97,12 @@ form h2 {
 .imagem-input label {
     display: flex;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 35px;
 }
 
 .imagem-input input {
-    margin-left: 19px;
-    width: 275px;
+    margin-left: 52px;
+    width: 243px;
     height: 37px;
     border-radius: 2px;
     padding: 10px;
@@ -144,19 +152,205 @@ form h2 {
 }
 
 .pre-visu {
-    width: 50%;
+    width: 60%;
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #023031; */
+    background-color: rgb(89, 176, 190);;
+}
+
+.pre-visu h2 {
+    margin: 80px 0 40px 60px;
+    color: white;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    width: 348px;
     justify-content: center;
-    align-items: center;
-    height: 529px;
+    width: 368px;
+    align-self: center;
+    height: 480px;
+    background-color: #109294;
+    border-radius: 10px;
+    border: #ffffff solid 6px;
+    color: #FFFFFF;
+}
+
+.card-div {
+    border: 12px solid #109294;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25) ;
     border-radius: 10px;
 }
 
+.name-div {
+    background-color: #0c6061;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+}
 
+.name-card {
+    text-align: left;
+    margin-left: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 28.7px;
+}
 
+.card img {
+    align-self: center;
+    width: 100%;
+    height: 250px;
+}
+
+.description-card {
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 300;
+}
+
+.rare-normal {
+    color: gray;
+}
+
+.rare-raro {
+    color: rgb(8, 188, 254);
+}
+
+.rare-muito-raro {
+    color: rgb(229, 78, 229);
+}
+
+.description-card {
+    margin-top: 5px;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.attrs-div p {
+    font-weight: 600;
+    line-height: 24px;  
+}
+
+.attrs-div {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    height: 197.5;
+}
+
+.attrs-div div {
+    display: flex;
+}
+
+.attr1, .attr2, .attr3 {
+    width: 244px;
+    margin-left: 20px;
+    background-color: #F0F2F5;
+    border-radius: 10px;
+    color: #3D495C;
+}
+
+.attr1-value, .attr2-value, .attr3-value {
+    color: #FFFFFF;
+    width: 48px;
+    height: 30.74px;
+    text-align: center;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #0c6061;
+}
+
+.remaining-points {
+    font-weight: 400;
+    line-height: 24px;
+    margin-left: 190px;
+    margin-bottom: 40px;
+}
+
+.trunfo-div {
+    position: absolute;
+    display: flex;
+    margin: 185px 0 0 245px;
+    background-color: rgb(255, 31, 31);
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.trunfo {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.cards-container {
+    margin: 20px 0 0 200px;
+}
+
+.cards-container h2 {
+    margin-bottom: 40px;
+}
+
+.filters h4 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 18.45px;
+}
+
+.name-filter input, .rareFilter select {
+    width: 305px;
+    padding: 12px 16px;
+    gap: 10px;
+    height: 45px;
+    border: 1px solid #3D495C;
+    border-radius: 6px;
+    margin-bottom: 17px;
+}
+
+.trunfo-filter label {
+    font-weight: 400px;
+    line-height: 24px;
+}
+
+.trunfo-filter label input {
+    margin-right: 5px;
+}
+
+.filter-cards {
+    display: flex;
+}
+
+.cards {
+    margin-left: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cards .card {
+    margin: 0 20px 20px 0;
+}
+
+.delete-button {
+    margin: 55px 0 0 100px;
+    padding: 8px 32px;
+    gap: 10px;
+    width: 118px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 2px solid #003BE5;
+    border-radius: 2px;
+    color: #003BE5;
+}

@@ -15,6 +15,7 @@ class App extends React.Component {
     cardAttr1: '',
     cardAttr2: '',
     cardAttr3: '',
+    remainingPoints: 210,
     cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
@@ -30,6 +31,7 @@ class App extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value }, () => {
       this.validationButtonSubmit();
+      this.remainingPoints();
     });
   }
 
@@ -53,6 +55,23 @@ class App extends React.Component {
     this.setState({ isSaveButtonDisabled: buttonIsDisabled });
   }
 
+  remainingPoints = () => {
+    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const limitPoints = 210;
+    let sum = 0;
+    if (cardAttr1) {
+      sum += parseFloat(cardAttr1);
+    }
+    if (cardAttr2) {
+      sum += parseFloat(cardAttr2);
+    }
+    if (cardAttr3) {
+      sum += parseFloat(cardAttr3);
+    }
+
+    this.setState({ remainingPoints: limitPoints - sum });
+  }
+
   onSaveButtonClick = () => {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
@@ -74,9 +93,9 @@ class App extends React.Component {
       cardName: '',
       cardDescription: '',
       cardImage: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: existTrunfo,
@@ -85,15 +104,15 @@ class App extends React.Component {
   }
 
   removeCard = ({ target }) => {
-    const superTrunfo = target.previousElementSibling.innerHTML === 'Super Trunfo';
+    const superTrunfo = target.parentElement.childNodes[1].innerText === 'Trunfo';
     if (superTrunfo) {
       this.setState({ hasTrunfo: false });
     }
-    target.parentElement.remove();
+    target.parentElement.parentElement.remove();
   }
 
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, remainingPoints,
       cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
       cards, nameFilter, rareFilter, trunfoFilter } = this.state;
 
@@ -107,6 +126,7 @@ class App extends React.Component {
             cardAttr1={ cardAttr1 }
             cardAttr2={ cardAttr2 }
             cardAttr3={ cardAttr3 }
+            remainingPoints={ remainingPoints }
             cardImage={ cardImage }
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
@@ -133,31 +153,33 @@ class App extends React.Component {
 
         <div className="cards-container">
           <h2>Todas as cartas</h2>
-          <div className="filters">
-            <h4>Filtros de busca</h4>
-            <NameFilter
-              onInputChange={ this.onInputChange }
-              nameFilter={ nameFilter }
-              trunfoFilter={ trunfoFilter }
-            />
-            <RareFilter
-              onInputChange={ this.onInputChange }
-              rareFilter={ rareFilter }
-              trunfoFilter={ trunfoFilter }
-            />
-            <TrunfoFilter
-              trunfoFilter={ trunfoFilter }
-              onInputChange={ this.onInputChange }
-            />
-          </div>
-          <div className="cards">
-            { cards.length > 0 && <GetCards
-              cards={ cards }
-              nameFilter={ nameFilter }
-              removeCard={ this.removeCard }
-              rareFilter={ rareFilter }
-              trunfoFilter={ trunfoFilter }
-            />}
+          <div className="filter-cards">
+            <div className="filters">
+              <h4>Filtros de busca</h4>
+              <NameFilter
+                onInputChange={ this.onInputChange }
+                nameFilter={ nameFilter }
+                trunfoFilter={ trunfoFilter }
+              />
+              <RareFilter
+                onInputChange={ this.onInputChange }
+                rareFilter={ rareFilter }
+                trunfoFilter={ trunfoFilter }
+              />
+              <TrunfoFilter
+                trunfoFilter={ trunfoFilter }
+                onInputChange={ this.onInputChange }
+              />
+            </div>
+            <div className="cards">
+              { cards.length > 0 && <GetCards
+                cards={ cards }
+                nameFilter={ nameFilter }
+                removeCard={ this.removeCard }
+                rareFilter={ rareFilter }
+                trunfoFilter={ trunfoFilter }
+              />}
+            </div>
           </div>
         </div>
       </main>

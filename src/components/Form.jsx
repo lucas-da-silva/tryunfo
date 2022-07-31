@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, remainingPoints,
       cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
       onInputChange, onSaveButtonClick } = this.props;
 
@@ -59,7 +59,7 @@ class Form extends Component {
 
         <div className="attr1-input">
           <label htmlFor="attr1-input">
-            Attr01
+            Força
             <input
               type="number"
               name="cardAttr1"
@@ -73,7 +73,7 @@ class Form extends Component {
 
         <div className="attr2-input">
           <label htmlFor="attr2-input">
-            Attr02
+            Velocidade
             <input
               type="number"
               name="cardAttr2"
@@ -87,7 +87,7 @@ class Form extends Component {
 
         <div className="attr3-input">
           <label htmlFor="attr3-input">
-            Attr03
+            Observação
             <input
               type="number"
               name="cardAttr3"
@@ -98,6 +98,8 @@ class Form extends Component {
             />
           </label>
         </div>
+
+        <p className="remaining-points">{`Pontos restantes = ${remainingPoints}`}</p>
 
         <div className="imagem-input">
           <label htmlFor="imagem-input">
@@ -160,6 +162,7 @@ Form.propTypes = {
   cardAttr1: PropTypes.string.isRequired,
   cardAttr2: PropTypes.string.isRequired,
   cardAttr3: PropTypes.string.isRequired,
+  remainingPoints: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,

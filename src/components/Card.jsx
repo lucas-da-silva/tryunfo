@@ -7,39 +7,73 @@ class Card extends Component {
       cardImage, cardRare, cardTrunfo, buttonDelete, removeCard } = this.props;
 
     const button = (
-      <button onClick={ removeCard } type="button" data-testid="delete-button">
+      <button
+        onClick={ removeCard }
+        className="delete-button"
+        type="button"
+        data-testid="delete-button"
+      >
         Excluir
       </button>
     );
 
+    const trunfo = (
+      <div className="trunfo-div">
+        <p className="trunfo" data-testid="trunfo-card"><u>Trunfo</u></p>
+      </div>
+    );
+
+    let rare;
+    if (cardRare === 'normal') {
+      rare = 'rare-normal';
+    } else if (cardRare === 'raro') {
+      rare = 'rare-raro';
+    } else if (cardRare === 'muito raro') {
+      rare = 'rare-muito-raro';
+    }
+
     return (
       <div className="card">
-        <p data-testid="name-card">{cardName}</p>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <p className="pre-name" data-testid="description-card">{cardDescription}</p>
-        <p className="pre-attr1" data-testid="attr1-card">
-          Atributo 1:
-          {' '}
-          {cardAttr1}
-        </p>
-        <p className="pre-attr2" data-testid="attr2-card">
-          Atributo 2:
-          {' '}
-          {cardAttr2}
-        </p>
-        <p className="pre-attr3" data-testid="attr3-card">
-          Atributo 3:
-          {' '}
-          {cardAttr3}
-        </p>
-        <p className="pre-rare" data-testid="rare-card">{cardRare}</p>
-        {
-          cardTrunfo === true
-          && <p className="pre-trunfo" data-testid="trunfo-card">Super Trunfo</p>
-        }
-        {
-          buttonDelete === true && button
-        }
+        <div className="card-div">
+          <div className="name-div">
+            <p className="name-card" data-testid="name-card">{cardName}</p>
+            <p className={ `rare-card, ${rare}` } data-testid="rare-card">{cardRare}</p>
+          </div>
+          {
+            cardTrunfo === true && trunfo
+          }
+          <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+          <div className="description-card">
+            <p
+              data-testid="description-card"
+            >
+              {cardDescription}
+            </p>
+          </div>
+          <div className="attrs-div">
+            <div className="attr1-div">
+              <p className="attr1" data-testid="attr1-card">
+                Força:
+              </p>
+              <p className="attr1-value">{cardAttr1}</p>
+            </div>
+            <div className="attr2-div">
+              <p className="attr2" data-testid="attr2-card">
+                Velocidade:
+              </p>
+              <p className="attr2-value">{cardAttr2}</p>
+            </div>
+            <div className="attr3-div">
+              <p className="attr3" data-testid="attr3-card">
+                Observação:
+              </p>
+              <p className="attr2-value">{cardAttr3}</p>
+            </div>
+          </div>
+          {
+            buttonDelete === true && button
+          }
+        </div>
       </div>
     );
   }

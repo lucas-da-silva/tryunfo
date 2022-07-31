@@ -7,18 +7,16 @@ class NameFilter extends Component {
 
     return (
       <div className="name-filter">
-        <label htmlFor="name-filter">
-          <input
-            name="nameFilter"
-            type="text"
-            id="name-filter"
-            placeholder="Nome da carta"
-            data-testid="name-filter"
-            disabled={ trunfoFilter }
-            value={ nameFilter }
-            onChange={ onInputChange }
-          />
-        </label>
+        <input
+          name="nameFilter"
+          type="text"
+          id="name-filter"
+          placeholder="Nome da carta"
+          data-testid="name-filter"
+          disabled={ trunfoFilter }
+          value={ nameFilter }
+          onChange={ onInputChange }
+        />
       </div>
     );
   }
