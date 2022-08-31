@@ -1,4 +1,4 @@
-# Bem vindo ao projeto Tryunfo!
+# Bem vindo ao repositório do projeto Tryunfo!
 
 ## Comentários
 Segundo projeto usando React, e esse foi um projeto mais complexo. Consistia basicamente
