@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/project-tryunfo/static/css/main.7c2544c5.css",
+    "main.js": "/project-tryunfo/static/js/main.535e43ee.js",
+    "index.html": "/project-tryunfo/index.html",
+    "main.7c2544c5.css.map": "/project-tryunfo/static/css/main.7c2544c5.css.map",
+    "main.535e43ee.js.map": "/project-tryunfo/static/js/main.535e43ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c2544c5.css",
+    "static/js/main.535e43ee.js"
+  ]
+}
