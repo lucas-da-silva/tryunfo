@@ -11,7 +11,7 @@ em criar um jogo no estilo Super Trunfo. Onde é possível criar uma baralho com
 1. No terminal, em um diretório de sua escolha, clonar o repositório:
 
 ```
-git clone git@github.com:lucas-da-silva/tryunfo.git
+git clone git@github.com:lucas-da-silva/tryunfo-game.git
 ```
 
 2. Dentro do repositório do projeto, instalar as dependências:
